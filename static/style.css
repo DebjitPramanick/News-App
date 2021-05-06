@@ -12,13 +12,12 @@
 }
 
 .container{
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    flex-direction: row;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, max-content));
+    justify-content: center;
     padding: 10px;
-    row-gap: 26px;
+    row-gap: 16px;
+    column-gap: 16px;
 }
 
 @media(max-width: 651px){
@@ -26,7 +25,12 @@
         flex-direction: column;
     }
     .news-card{
+        max-width: none !important;
         width: 100% !important;
+    }
+
+    .img-container img{
+        height: fit-content !important;
     }
 }
 
@@ -36,9 +40,9 @@
     flex-direction: column;
     border-radius: 6px;
     overflow: hidden;
-    box-shadow: 0 0 10px #0000003a;
+    box-shadow: 0 0 10px #00000065;
     max-width: 260px;
-    height: 256px;
+    min-height: 256px;
 }
 
 .subpart{
