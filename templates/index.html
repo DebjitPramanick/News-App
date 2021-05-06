@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+    <title>News App</title>
+</head>
+
+<body>
+    <div class="header">NEWS APP</div>
+    <div class="container">
+
+        {% for r in res.articles %}
+        <div class="news-card">
+            <div class="img-container">
+                <img src="{{r.urlToImage}}"
+                    alt="news" />
+            </div>
+            <div class="subpart">
+                <h3>{{r.title}}</h3>
+                <p>{{r.description}}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+
+</html>
