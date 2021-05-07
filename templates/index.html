@@ -11,7 +11,13 @@
 </head>
 
 <body>
-    <div class="header">NEWS APP</div>
+    <div class="header">
+        <a href="/">NEWS APP</a>
+        <form class="search-bar" action="{% url 'query' %}" method="GET">
+            <input id="query" name="query" type="search" placeholder="Search by keyword..."/>
+            <!-- <input id="btn" type="submit"/> -->
+        </form>
+    </div>
     <div class="container">
 
         {% for r in res.articles %}
@@ -27,6 +33,13 @@
         </div>
         {% endfor %}
     </div>
+
+    <script>
+
+        // const query = document.getElementById('query').value
+
+    </script>
+
 </body>
 
 </html>

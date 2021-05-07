@@ -9,6 +9,28 @@
     color: white;
     font-size: 22px;
     padding: 10px;
+    display: flex;
+    align-items: center;
+    column-gap: 16px;
+}
+
+.header a{
+    color: white;
+    text-decoration: none;
+}
+
+.search-bar{
+    background-color: white;
+    padding: 4px 8px;
+    display: flex;
+    align-items: center;
+}
+
+.search-bar input{
+    font-size: 14px;
+    color: black;
+    outline: 0;
+    border: 0;
 }
 
 .container{
@@ -43,6 +65,12 @@
     box-shadow: 0 0 10px #00000065;
     max-width: 260px;
     min-height: 256px;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.news-card:hover{
+    transform: scale(1.1);
 }
 
 .subpart{
