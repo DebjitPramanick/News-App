@@ -27,8 +27,16 @@
             <li class="ls-it"><a href="/general">General</a></li>
         </ul>
     </div>
+    <div class="cou-container">
+        <h3>Filter news by cities: </h3>
+        <div class="name-container">
+            {% for id, country in cou %}
+            <a href="/country/{{id}}">{{country}}</a>
+            {% endfor %}
+        </div>
+        
+    </div>
     <div class="container">
-
         {% for r in res.articles %}
         <div class="news-card">
             <div class="img-container">
