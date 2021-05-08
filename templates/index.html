@@ -14,23 +14,25 @@
     <div class="header">
         <a href="/">NEWS APP</a>
         <form class="search-bar" action="{% url 'query' %}" method="GET">
-            <input id="query" name="query" type="search" placeholder="Search by keyword..."/>
+            <input id="query" name="query" type="search" placeholder="Search by keyword..." />
             <!-- <input id="btn" type="submit"/> -->
         </form>
-        <select>
-            <option>India</option>
-            <option>India</option>
-            <option>India</option>
-            <option>India</option>
-        </select>
+        <ul class='cat-list'>
+            <li class="ls-it"><a href="/business">Business</a></li>
+            <li class="ls-it"><a href="/entertainment">Entertainment</a></li>
+            <li class="ls-it"><a href="/health">Health</a></li>
+            <li class="ls-it"><a href="/science">Science</a></li>
+            <li class="ls-it"><a href="/sports">Sports</a></li>
+            <li class="ls-it"><a href="/technology">Technology</a></li>
+            <li class="ls-it"><a href="/general">General</a></li>
+        </ul>
     </div>
     <div class="container">
 
         {% for r in res.articles %}
         <div class="news-card">
             <div class="img-container">
-                <img src="{{r.urlToImage}}"
-                    alt="news" />
+                <img src="{{r.urlToImage}}" alt="news" />
             </div>
             <div class="subpart">
                 <h3>{{r.title}}</h3>
