@@ -23,7 +23,7 @@
 .search-bar{
     flex-basis: 50%;
     background-color: white;
-    padding: 4px 8px;
+    padding: 8px;
     display: flex;
     align-items: center;
     border-radius: 4px;
@@ -31,7 +31,7 @@
 
 .search-bar input{
     width: 100%;
-    font-size: 16px;
+    font-size: 14px;
     color: black;
     outline: 0;
     border: 0;
@@ -57,17 +57,34 @@
     padding: 10px;
 }
 
+.hd{
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+}
+
 .cou-container h3{
-    margin-bottom: 14px;
+    display: inline;
+}
+
+.fa{
+    cursor: pointer;
+}
+
+.fa-chevron-down,
+.fa-chevron-up{
+    margin-top: 4px;
+    font-size: 14px !important;
 }
 
 .name-container{
-    display: grid;
+    display: none;
     grid-template-columns: repeat(auto-fit, minmax(80px, max-content));
     justify-content: center;
     row-gap: 16px;
     column-gap: 16px;
     column-gap: 20px;
+    margin-top: 16px;
 }
 
 .cou-container a{
@@ -93,6 +110,7 @@
     padding: 10px;
     row-gap: 16px;
     column-gap: 16px;
+    margin-top: 20px;
 }
 
 @media(max-width: 651px){
@@ -161,4 +179,50 @@ p{
    display: -webkit-box;
    -webkit-line-clamp: 2;
    -webkit-box-orient: vertical;
+}
+
+
+/* Modal News */
+
+#modal{
+    background-color: #000000b9;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+#modal-box{
+    max-width: 600px;
+    height: 800px;
+    background-color: white;
+    padding: 16px;
+    overflow-y: scroll;
+}
+
+
+.news-data h2{
+    margin: 6px 0;
+}
+
+.news-img{
+    width: 600px;
+    display: flex;
+    justify-content: center;
+}
+
+.news-img img{
+    width: 100%;
+}
+
+.news-details{
+    margin: 16px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: grey;
 }

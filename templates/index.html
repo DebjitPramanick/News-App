@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'style.css' %}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>News App</title>
 </head>
 
@@ -28,17 +29,22 @@
         </ul>
     </div>
     <div class="cou-container">
-        <h3>Filter news by cities: </h3>
-        <div class="name-container">
+        <div class="hd">
+            <h3>Filter news by cities</h3>
+            <span id="expand"><i class="fa fa-chevron-down"></i></span>
+            <span id="shrink" style="display: none;"><i class="fa fa-chevron-up"></i></span>
+        </div>
+
+        <div class="name-container" id="country-names">
             {% for id, country in cou %}
             <a href="/country/{{id}}">{{country}}</a>
             {% endfor %}
         </div>
-        
+
     </div>
     <div class="container">
         {% for r in res.articles %}
-        <div class="news-card">
+        <div class="news-card" id="news-card" onclick='readMore("{{r}}")'>
             <div class="img-container">
                 <img src="{{r.urlToImage}}" alt="news" />
             </div>
@@ -50,9 +56,49 @@
         {% endfor %}
     </div>
 
-    <script>
+    <div id="modal">
+        <div id="modal-box">
+            <div class="news-data">
+                <div class="news-img">
+                    <img src="https://techcrunch.com/wp-content/uploads/2020/05/NSussman_Techcrunch_Exchange_v3-ORNG.jpg?w=533" />
+                </div>
+                <h2>What Square’s smashing earnings tell us about consumer bitcoin demand</h2>
+                <div class="news-details">
+                    <div class="author">Author: <strong>Alex Wilhelm</strong></div>
+                    <div class="published-at">Date: <strong>2021-05-07</strong></div>
+                </div>
+                <div class="news-content">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
 
-        // const query = document.getElementById('query').value
+    <script type="text/javascript">
+
+        const expand = document.getElementById('expand')
+        const shrink = document.getElementById('shrink')
+        const countries = document.getElementById('country-names')
+
+        shrink.addEventListener('click', () => {
+            countries.style.display = 'none'
+            shrink.style.display = 'none'
+            expand.style.display = 'block'
+        })
+
+        expand.addEventListener('click', () => {
+            countries.style.display = 'grid'
+            expand.style.display = 'none'
+            shrink.style.display = 'block'
+        })
+
+
+        const newsCard = document.getElementById('news-card')
+        console.log(res.articles)
+
+        function readMore(r){
+            console.log(r)
+        }
 
     </script>
 
