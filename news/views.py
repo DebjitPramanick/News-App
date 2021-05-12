@@ -54,12 +54,24 @@ def query(req):
         query = req.GET.get('query').lower()
         queryNews = requests.get('https://newsapi.org/v2/everything?q='+query+'&pageSize=100&apiKey=291fabaef53b4aa48a118f8235a1ba3c')
         searchRes = json.loads(queryNews.content)
+        for r in searchRes['articles']:
+            if r['author'] == None: r['author'] = 'Unknown'
+            if r['urlToImage'] == None: r['urlToImage'] = 'Unknown'
+            if r['description'] == None: r['description'] = 'Unknown'
+            if r['content'] == None: r['content'] = 'Unknown'
+            if r['source']['id'] == None: r['source']['id'] = 'Unknown'
         return render(req,'index.html', {'res': searchRes, 'cou': countries.items()})
 
 def getCategory(req, ct):
     searchRes = {}
     catNews = requests.get('https://newsapi.org/v2/top-headlines?country=in&pageSize=100&category='+ct+'&apiKey=291fabaef53b4aa48a118f8235a1ba3c')
     searchRes = json.loads(catNews.content)
+    for r in searchRes['articles']:
+        if r['author'] == None: r['author'] = 'Unknown'
+        if r['urlToImage'] == None: r['urlToImage'] = 'Unknown'
+        if r['description'] == None: r['description'] = 'Unknown'
+        if r['content'] == None: r['content'] = 'Unknown'
+        if r['source']['id'] == None: r['source']['id'] = 'Unknown'
     return render(req,'index.html', {'res': searchRes, 'cou': countries.items()})
 
 def getCountry(req, cid):
@@ -67,4 +79,10 @@ def getCountry(req, cid):
     countriesNews = requests.get('https://newsapi.org/v2/top-headlines?country='+cid+'&pageSize=100&apiKey=291fabaef53b4aa48a118f8235a1ba3c')
     print(cid)
     searchRes = json.loads(countriesNews.content)
+    for r in searchRes['articles']:
+        if r['author'] == None: r['author'] = 'Unknown'
+        if r['urlToImage'] == None: r['urlToImage'] = 'Unknown'
+        if r['description'] == None: r['description'] = 'Unknown'
+        if r['content'] == None: r['content'] = 'Unknown'
+        if r['source']['id'] == None: r['source']['id'] = 'Unknown'
     return render(req,'index.html', {'res': searchRes, 'cou': countries.items()})

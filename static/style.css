@@ -63,6 +63,18 @@
     column-gap: 10px;
 }
 
+.hd span{
+    background-color: #0000002c;
+    color: white;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
 .cou-container h3{
     display: inline;
 }
@@ -73,7 +85,6 @@
 
 .fa-chevron-down,
 .fa-chevron-up{
-    margin-top: 4px;
     font-size: 14px !important;
 }
 
@@ -193,6 +204,21 @@ p{
     display: none;
     align-items: center;
     justify-content: center;
+}
+
+.close-btn{
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 20px;
+    background-color: #ffffff;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
 }
 
 #modal-box{

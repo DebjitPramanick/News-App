@@ -57,6 +57,9 @@
     </div>
 
     <div id="modal">
+        <div class="close-btn" id="close-btn">
+            <i class="fa fa-times"></i>
+        </div>
         <div id="modal-box">
             <div class="news-data">
                 <div class="news-img">
@@ -65,7 +68,7 @@
                 <h2  id="news-title">What Square’s smashing earnings tell us about consumer bitcoin demand</h2>
                 <div class="news-details">
                     <div class="author" id="news-author">Author: <strong>Alex Wilhelm</strong></div>
-                    <div class="published-at" id="news-date">Date: <strong>2021-05-07</strong></div>
+                    <div class="published-at">Date: <strong id="news-date"></strong></div>
                 </div>
                 <div class="news-content" id="news-content"></div>
             </div>
@@ -83,21 +86,24 @@
         shrink.addEventListener('click', () => {
             countries.style.display = 'none'
             shrink.style.display = 'none'
-            expand.style.display = 'block'
+            expand.style.display = 'flex'
         })
 
         expand.addEventListener('click', () => {
             countries.style.display = 'grid'
             expand.style.display = 'none'
-            shrink.style.display = 'block'
+            shrink.style.display = 'flex'
         })
 
         const modal = document.getElementById('modal')
+
+        const close = document.getElementById('close-btn')
 
         const content = document.getElementById('news-content')
         const image = document.getElementById('news-img')
         const title = document.getElementById('news-title')
         const author = document.getElementById('news-author')
+        const date = document.getElementById('news-date')
 
         const readMore = (e) => {
             let res = e.target.dataset.news
@@ -108,7 +114,12 @@
             image.src = res.urlToImage
             title.innerText = res.title
             author.innerText = res.author
+            date.innerText = res.publishedAt.slice(0,10)
         }
+
+        close.addEventListener('click', () => {
+            modal.style.display = 'none'
+        })
 
     </script>
 
