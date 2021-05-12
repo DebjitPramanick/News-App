@@ -38,7 +38,15 @@ def index(req):
     print(countries['hk'])
     allNews = requests.get('https://newsapi.org/v2/top-headlines?country=in&pageSize=100&apiKey=291fabaef53b4aa48a118f8235a1ba3c')
     res = json.loads(allNews.content)
-    return render(req, 'index.html', {'res': res, 'cou': countries.items()})
+
+    for r in res['articles']:
+        if r['author'] == None: r['author'] = 'Unknown'
+        if r['urlToImage'] == None: r['urlToImage'] = 'Unknown'
+        if r['description'] == None: r['description'] = 'Unknown'
+        if r['content'] == None: r['content'] = 'Unknown'
+        if r['source']['id'] == None: r['source']['id'] = 'Unknown'
+
+    return render(req, 'index.html', {'res': res , 'cou': countries.items()})
 
 def query(req):
     searchRes = {}

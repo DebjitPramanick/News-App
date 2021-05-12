@@ -137,12 +137,6 @@
     max-width: 260px;
     min-height: 256px;
     cursor: pointer;
-    transition: 0.4s;
-}
-
-.news-card:hover{
-    transform: scale(1.1);
-    background-color: #b5ffd6;
 }
 
 .subpart{
@@ -169,6 +163,11 @@ h3{
    display: -webkit-box;
    -webkit-line-clamp: 2; /* number of lines to show */
    -webkit-box-orient: vertical;
+}
+
+h3:hover{
+    color: rgb(59, 0, 253);
+    
 }
 
 p{

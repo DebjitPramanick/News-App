@@ -44,12 +44,12 @@
     </div>
     <div class="container">
         {% for r in res.articles %}
-        <div class="news-card" id="news-card" onclick='readMore("{{r}}")'>
+        <div class="news-card" id="news-card">
             <div class="img-container">
                 <img src="{{r.urlToImage}}" alt="news" />
             </div>
             <div class="subpart">
-                <h3>{{r.title}}</h3>
+                <h3 data-news="{{r}}" onclick="readMore(event)">{{r.title}}</h3>
                 <p>{{r.description}}</p>
             </div>
         </div>
@@ -60,19 +60,19 @@
         <div id="modal-box">
             <div class="news-data">
                 <div class="news-img">
-                    <img src="https://techcrunch.com/wp-content/uploads/2020/05/NSussman_Techcrunch_Exchange_v3-ORNG.jpg?w=533" />
+                    <img src="" id="news-img"/>
                 </div>
-                <h2>What Square’s smashing earnings tell us about consumer bitcoin demand</h2>
+                <h2  id="news-title">What Square’s smashing earnings tell us about consumer bitcoin demand</h2>
                 <div class="news-details">
-                    <div class="author">Author: <strong>Alex Wilhelm</strong></div>
-                    <div class="published-at">Date: <strong>2021-05-07</strong></div>
+                    <div class="author" id="news-author">Author: <strong>Alex Wilhelm</strong></div>
+                    <div class="published-at" id="news-date">Date: <strong>2021-05-07</strong></div>
                 </div>
-                <div class="news-content">
-                    
-                </div>
+                <div class="news-content" id="news-content"></div>
             </div>
         </div>
     </div>
+
+    <script src="https://unpkg.com/json5@^2.0.0/dist/index.min.js"></script>
 
     <script type="text/javascript">
 
@@ -92,12 +92,22 @@
             shrink.style.display = 'block'
         })
 
+        const modal = document.getElementById('modal')
 
-        const newsCard = document.getElementById('news-card')
-        console.log(res.articles)
+        const content = document.getElementById('news-content')
+        const image = document.getElementById('news-img')
+        const title = document.getElementById('news-title')
+        const author = document.getElementById('news-author')
 
-        function readMore(r){
-            console.log(r)
+        const readMore = (e) => {
+            let res = e.target.dataset.news
+            res = JSON.parse(JSON.stringify(JSON5.parse(res)))
+            console.log(res)
+            modal.style.display = 'flex'
+            content.innerText = res.content
+            image.src = res.urlToImage
+            title.innerText = res.title
+            author.innerText = res.author
         }
 
     </script>
