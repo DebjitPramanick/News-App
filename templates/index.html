@@ -27,6 +27,25 @@
             <li class="ls-it"><a href="/technology">Technology</a></li>
             <li class="ls-it"><a href="/general">General</a></li>
         </ul>
+
+        <div class="menu">
+            <i class="fa fa-bars" id="menu-btn"></i>
+            <div class="popup" id="menu-popup">
+                <div class="close-btn" id="menu-close-btn">
+                    <i class="fa fa-times"></i>
+                </div>
+                <ul class='rs-cat-list'>
+                    <li class="ls-it"><a href="/business">Business</a></li>
+                    <li class="ls-it"><a href="/entertainment">Entertainment</a></li>
+                    <li class="ls-it"><a href="/health">Health</a></li>
+                    <li class="ls-it"><a href="/science">Science</a></li>
+                    <li class="ls-it"><a href="/sports">Sports</a></li>
+                    <li class="ls-it"><a href="/technology">Technology</a></li>
+                    <li class="ls-it"><a href="/general">General</a></li>
+                </ul>
+            </div>
+        </div>
+
     </div>
     <div class="cou-container">
         <div class="hd">
@@ -63,9 +82,9 @@
         <div id="modal-box">
             <div class="news-data">
                 <div class="news-img">
-                    <img src="" id="news-img"/>
+                    <img src="" id="news-img" />
                 </div>
-                <h2  id="news-title">What Square’s smashing earnings tell us about consumer bitcoin demand</h2>
+                <h2 id="news-title">What Square’s smashing earnings tell us about consumer bitcoin demand</h2>
                 <div class="news-details">
                     <div class="author" id="news-author">Author: <strong>Alex Wilhelm</strong></div>
                     <div class="published-at">Date: <strong id="news-date"></strong></div>
@@ -78,6 +97,19 @@
     <script src="https://unpkg.com/json5@^2.0.0/dist/index.min.js"></script>
 
     <script type="text/javascript">
+
+        const menuClose = document.getElementById('menu-close-btn')
+        const menuOpen = document.getElementById('menu-btn')
+        const menu = document.getElementById('menu-popup')
+
+        menuOpen.addEventListener('click',() => {
+            menu.style.display = 'block'
+        })
+
+        menuClose.addEventListener('click',() => {
+            menu.style.display = 'none'
+        })
+
 
         const expand = document.getElementById('expand')
         const shrink = document.getElementById('shrink')
@@ -96,7 +128,6 @@
         })
 
         const modal = document.getElementById('modal')
-
         const close = document.getElementById('close-btn')
 
         const content = document.getElementById('news-content')
@@ -114,7 +145,7 @@
             image.src = res.urlToImage
             title.innerText = res.title
             author.innerText = res.author
-            date.innerText = res.publishedAt.slice(0,10)
+            date.innerText = res.publishedAt.slice(0, 10)
         }
 
         close.addEventListener('click', () => {
