@@ -54,6 +54,10 @@ html{
     column-gap: 16px;
 }
 
+.menu{
+    display: none;
+}
+
 @media(max-width: 1000px){
     .search-bar{
         flex-basis: 80%;
@@ -61,7 +65,11 @@ html{
     .cat-list{
         display: none;
     }
+    .menu{
+        display: block;
+    }
 }
+
 
 .ls-it{
     font-size: 14px;
