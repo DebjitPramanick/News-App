@@ -1,0 +1,1 @@
+web gunicorn newsapp.wsgi:application --log-file -
